@@ -1,8 +1,9 @@
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
+import { useTheme } from "@mui/material";
 
 const Contacts = () => {
   const theme = useTheme();
@@ -46,7 +47,7 @@ const Contacts = () => {
     },
     {
       field: "zipCode",
-      headerName: "Zipcode",
+      headerName: "Zip Code",
       flex: 1,
     },
   ];
@@ -70,7 +71,7 @@ const Contacts = () => {
           "& .name-column--cell": {
             color: colors.greenAccent[300],
           },
-          "& .MuiDataGrid-withBorderColor": {
+          "& .MuiDataGrid-columnHeader": {
             backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
           },
@@ -81,16 +82,15 @@ const Contacts = () => {
             borderTop: "none",
             backgroundColor: colors.blueAccent[700],
           },
-          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: `${colors.grey[100]} !important`,
-          },
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,
+          },
+          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+            color: `${colors.grey[100]} !important`,
           },
         }}
       >
         <DataGrid
-          checkboxSelection
           rows={mockDataContacts}
           columns={columns}
           slots={{ toolbar: GridToolbar }}
